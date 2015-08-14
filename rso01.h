@@ -97,8 +97,13 @@
 
 #define		p1_lst1_x							p1_lab6_x
 #define		p1_lst1_y							p1_lab6_y+p1_lab6_h+8
-#define		p1_lst1_w							p1_lab6_w
+#define		p1_lst1_w							p1_lab6_w-12
 #define		p1_lst1_h							300
+
+#define		p1_scro1_x							p1_lst1_x+p1_lst1_w
+#define		p1_scro1_y							p1_lst1_y
+#define		p1_scro1_w							18
+#define		p1_scro1_h							300
 
 //定义第二页面的空间位置
 #define		p2_lab1_x							p1_lab1_x
@@ -125,7 +130,7 @@
 GtkWidget	*window,*notebook,*bfix,*nfix[note_counts],*nlab[note_counts];
 //定义第一页面的控件
 enum{l_idx=0,l_type,l_spt,l_dpt,l_saddr,l_daddr,l_size,l_num};
-GtkWidget	*lab1[6],*edit1[3],*bnt1[3],*chk1,*combo1,*list1;
+GtkWidget	*lab1[6],*edit1[3],*bnt1[3],*chk1,*combo1,*list1,*scroll;
 //定义第二页面的控件
 GtkWidget	*lab2[4],*edit2[2],*bnt2[3];
 

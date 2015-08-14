@@ -12,6 +12,7 @@ int crt_win(int argc,char** argv)
 	g_signal_connect(G_OBJECT(window),"destroy",G_CALLBACK(gtk_main_quit),NULL);
 	notebook=gtk_notebook_new();
 	crt_book1();
+	crt_book2();
 	bfix=gtk_fixed_new();
 	gtk_widget_set_size_request(bfix,bfix_w,bfix_h);
 	gtk_container_add(GTK_CONTAINER(window),bfix);
@@ -84,16 +85,52 @@ void crt_book1()
 	init_list(list1);
 	gtk_widget_set_size_request(list1,p1_lst1_w,p1_lst1_h);
 	gtk_fixed_put(GTK_FIXED(nfix[0]),list1,p1_lst1_x,p1_lst1_y);
+	scroll=gtk_vscrollbar_new(gtk_tree_view_get_vadjustment(GTK_TREE_VIEW(list1)));
+	gtk_widget_set_size_request(scroll,p1_scro1_w,p1_scro1_h);
+	gtk_fixed_put(GTK_FIXED(nfix[0]),scroll,p1_scro1_x,p1_scro1_y);
 
 	nlab[0]=gtk_label_new(ntil[0]);
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),nfix[0],nlab[0]);
 }//}}}
 //页面一中列表框的初始化函数
 //{{{ void init_list(GtkWidget *widget)
+//{{{
+/*void init_list(GtkWidget *widget)
+{
+	GtkListStore	*store;
+	GtkTreeModel	*model;
+	GtkTreeViewColumn *column;
+	GtkCellRenderer *render;
+	store=gtk_list_store_new(l_num,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING);
+	model=GTK_TREE_MODEL(store);
+	list1=gtk_tree_view_new_with_model(model);
+	render=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("序    号",render,"text",l_idx,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list1),column);
+	render=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("类    型",render,"text",l_type,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list1),column);
+	render=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("源 端 口",render,"text",l_spt,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list1),column);
+	render=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("目标端口",render,"text",l_dpt,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list1),column);
+	render=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("源 地 址",render,"text",l_saddr,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list1),column);
+	render=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("目标地址",render,"text",l_daddr,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list1),column);
+	render=gtk_cell_renderer_text_new();
+	column=gtk_tree_view_column_new_with_attributes("包 长 度",render,"text",l_size,NULL);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list1),column);
+//	g_object_unref(store);
+}*/
+//}}}
 void init_list(GtkWidget *widget)
 {
 	GtkCellRenderer *render;
-	GtkTreeViewColumn *column;
 	GtkListStore *store;
 	render=gtk_cell_renderer_text_new();
 	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(widget),-1,"序    号",render,"text",l_idx,NULL);
@@ -112,11 +149,14 @@ void init_list(GtkWidget *widget)
 	store=gtk_list_store_new(l_num,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING,G_TYPE_STRING);
 	gtk_tree_view_set_model(GTK_TREE_VIEW(widget),GTK_TREE_MODEL(store));
 	g_object_unref(store);
-}//}}}
+}
+//}}}
 //{{{ void crt_book2()
 void crt_book2()
 {
-	
+	nfix[1]=gtk_fixed_new();
+	gtk_widget_set_size_request(nfix[1],nfix_w,nfix_h);
+
 }//}}}
 //{{{ void crt_book3()
 void crt_book3()
