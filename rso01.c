@@ -156,7 +156,31 @@ void crt_book2()
 {
 	nfix[1]=gtk_fixed_new();
 	gtk_widget_set_size_request(nfix[1],nfix_w,nfix_h);
+	combo2=gtk_combo_box_new_text();
+	gtk_combo_box_append_text(GTK_COMBO_BOX(combo2),"查看包信息");
+	gtk_combo_box_append_text(GTK_COMBO_BOX(combo2),"查看ip包头");
+	gtk_combo_box_append_text(GTK_COMBO_BOX(combo2),"查看数据包头");
+	gtk_combo_box_append_text(GTK_COMBO_BOX(combo2),"查看数据信息");
+	gtk_combo_box_set_active(GTK_COMBO_BOX(combo2),0);
+	gtk_widget_set_size_request(combo2,p2_com1_w,p2_com1_h);
+	gtk_fixed_put(GTK_FIXED(nfix[1]),combo2,p2_com1_x,p2_com1_y);
+	bnt2=gtk_button_new_with_label(p2_bnt1_t);
+	gtk_widget_set_size_request(bnt2,p2_bnt1_w,p2_bnt1_h);
+	gtk_fixed_put(GTK_FIXED(nfix[1]),bnt2,p2_bnt1_x,p2_bnt1_y);
+	lab2=gtk_label_new(p2_lab1_t);
+	gtk_widget_set_size_request(lab2,p2_lab1_w,p2_lab1_h);
+	gtk_fixed_put(GTK_FIXED(nfix[1]),lab2,p2_lab1_x,p2_lab1_y);
+	scrol2=gtk_scrolled_window_new(NULL,NULL);
+	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrol2),GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
+	edit2=gtk_text_view_new();
+	gtk_widget_set_size_request(edit2,p2_ed1_w,p2_ed1_h);
+	gtk_container_add(GTK_CONTAINER(scrol2),edit2);
+	gtk_fixed_put(GTK_FIXED(nfix[1]),scrol2,p2_ed1_x,p2_ed1_y);
+//	scrol2=gtk_vscrollbar_new();
+	
 
+	nlab[1]=gtk_label_new(ntil[1]);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),nfix[1],nlab[1]);
 }//}}}
 //{{{ void crt_book3()
 void crt_book3()

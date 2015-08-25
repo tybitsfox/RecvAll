@@ -106,10 +106,35 @@
 #define		p1_scro1_h							300
 
 //定义第二页面的空间位置
-#define		p2_lab1_x							p1_lab1_x
-#define		p2_lab1_y							p1_lab1_y
-#define		p2_lab1_w							100
-#define		p2_lab1_h							16
+#define		p2_com1_x							8
+#define		p2_com1_y							12
+#define		p2_com1_w							p1_com1_w+16
+#define		p2_com1_h							p1_com1_h
+
+#define		p2_bnt1_x							p2_com1_x+p2_com1_w+10
+#define		p2_bnt1_y							p2_com1_y+1
+#define		p2_bnt1_w							p1_bt1_w
+#define		p2_bnt1_h							p1_bt1_h
+#define		p2_bnt1_t							"察    看"
+
+#define		p2_lab1_x							p2_bnt1_x+p2_bnt1_w+10
+#define		p2_lab1_y							p2_bnt1_y+3
+#define		p2_lab1_w							385
+#define		p2_lab1_h							p1_lab1_h
+#define		p2_lab1_t							"测试，测试，测试，测试1，测试1，测试2，测试3，测试4，测试5测试5测试5测试5"
+
+#define		p2_ed1_x							p2_com1_x
+#define		p2_ed1_y							p2_com1_y+p2_com1_h+8
+#define		p2_ed1_w							580
+#define		p2_ed1_h							350
+
+#define		p2_scro1_x							p2_ed1_x+p2_ed1_w
+#define		p2_scro1_y							p2_ed1_y
+#define		p2_scro1_w							18
+#define		p2_scro1_h							p2_ed1_h
+
+
+
 
 //定义第三页面的控件位置
 #define		p3_lab1_x							p1_lab1_x
@@ -124,6 +149,7 @@
 #define		p4_lab1_h							16
 
 
+
 //}}}
 
 //{{{ define all variables
@@ -132,7 +158,7 @@ GtkWidget	*window,*notebook,*bfix,*nfix[note_counts],*nlab[note_counts];
 enum{l_idx=0,l_type,l_spt,l_dpt,l_saddr,l_daddr,l_size,l_num};
 GtkWidget	*lab1[6],*edit1[3],*bnt1[3],*chk1,*combo1,*list1,*scroll;
 //定义第二页面的控件
-GtkWidget	*lab2[4],*edit2[2],*bnt2[3];
+GtkWidget	*lab2,*edit2,*bnt2,*combo2,*scrol2;
 
 char	ntil[note_counts][100]={"监听界面","包分析","参数设置","说明"};
 //}}}
